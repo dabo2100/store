@@ -1,5 +1,10 @@
+import ItemDetails from "../components/itemDetails";
+
 
 
 export default function ProductDetails() {
-  return <div>Product Details Page Will Be Here</div>;
-}
+  return (
+   <div className=" container mx-auto ">
+   <ItemDetails />
+  </div>
+)}
