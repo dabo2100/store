@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "../assets/92e8cbf43a7b882297a50eef7547660bf255be39.png";
-import car from "../assets/delivery-truck-svgrepo-com (1) 1.png";
-import verify from "../assets/verify.png";
+
+import ButtonsItemDetails from "./componentItemDerails/ButtonsItemDetails";
+import FeaturesAdoutItemDetails from "./componentItemDerails/FeaturesAboutItemDetails";
 const ItemDetails = () => {
   return (
     <div className="flex flex-col lg:flex-row gap-20 px-20 py-5">
@@ -23,49 +24,8 @@ const ItemDetails = () => {
           necessary information that a user might need to know about this
           particular item.
         </p>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full">
-          <button className="bg-transparent hover:bg-dark hover:text-white border transition duration-200 cursor-pointer px-4 py-4 rounded font-roboto">
-            Add to Wishlist
-          </button>
-          <button className="bg-dark hover:bg-transparent hover:text-dark border transition duration-200 cursor-pointer  text-white px-4 py-4 rounded font-roboto">
-            Add to Cart
-          </button>
-        </div>
-        <div className="w-full flex mt-5 px-2 gap-15">
-          <div className="flex gap-5 items-center">
-            <div className="bg-gray-200 p-4 rounded-2xl">
-              <img className="h-10 w-10 " src={car} alt="delivery" />
-            </div>
-            <div className="flex flex-col gap-3">
-              <p className="font-roboto text-gray-700 text-[16px]">
-                Free Delivery
-              </p>
-              <p className="font-roboto text-[16px]">1-2 day</p>
-            </div>
-          </div>
-          <div className="flex gap-5 items-center">
-            <div className="bg-gray-200 p-4 rounded-2xl">
-              <img className="h-10 w-10 " src={car} alt="delivery" />
-            </div>
-            <div className="flex flex-col gap-3">
-              <p className="font-roboto text-gray-700 text-[16px]">
-                In Stock
-              </p>
-              <p className="font-roboto text-[16px]">Today</p>
-            </div>
-          </div>
-          <div className="flex gap-5 items-center">
-            <div className="bg-gray-200 p-4 rounded-2xl">
-              <img className="h-10 w-10 " src={verify} alt="delivery" />
-            </div>
-            <div className="flex flex-col gap-3">
-              <p className="font-roboto text-gray-700 text-[16px]">
-               Guaranteed
-              </p>
-              <p className="font-roboto text-[16px]">1 year</p>
-            </div>
-          </div>
-        </div>
+        <ButtonsItemDetails />
+        <FeaturesAdoutItemDetails />
       </div>
     </div>
   );
