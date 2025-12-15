@@ -7,3 +7,9 @@
     --color-dark: #121212;
     --font-roboto: 'Roboto', sans-serif;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Chau+Philomene+One&display=swap");
+
+.chau-font {
+  font-family: "Chau Philomene One", sans-serif;
+}
