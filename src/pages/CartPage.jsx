@@ -5,9 +5,11 @@ export default function CartPage() {
 
   return <div className="container mx-auto flex flex-col items-center px-4 py-10 lg:py-[40px] chau-font">
     <div className="w-full flex flex-col lg:flex-row justify-center gap-8 lg:gap-[48px]">
-      <div className="w-full flex flex-col gap-[40px]">
+      <div className="w-full h-[590px] flex flex-col gap-[40px]">
         <h1 className="text-[24px] leading-[24px] tracking-normal font-semibold">Shopping Cart</h1>
-        <div className="flex flex-col gap-[80px]">
+        <div className="flex flex-col gap-[80px] overflow-auto">
+          <CartItem />
+          <CartItem />
           <CartItem />
           <CartItem />
           <CartItem />

@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const navigate = useNavigate()
 
     return (
         <header className='w-full flex items-center justify-between py-6 md:px-0 container mx-auto'>
@@ -44,7 +45,7 @@ export default function Header() {
                             <path d="M5.75 0.75C2.989 0.75 0.75 2.966 0.75 5.7C0.75 7.907 1.625 13.145 10.238 18.44C10.3923 18.5339 10.5694 18.5835 10.75 18.5835C10.9306 18.5835 11.1077 18.5339 11.262 18.44C19.875 13.145 20.75 7.907 20.75 5.7C20.75 2.966 18.511 0.75 15.75 0.75C12.989 0.75 10.75 3.75 10.75 3.75C10.75 3.75 8.511 0.75 5.75 0.75Z" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </button>
-                    <button className='hover:opacity-75 transition-opacity cursor-pointer'>
+                    <button className='hover:opacity-75 transition-opacity cursor-pointer' onClick={()=>{navigate("/Cart")}}>
                         <svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.75 0.75H4.75L7.75 17.75H23.75M7.75 12.4167H23.34C23.4556 12.4167 23.5677 12.3767 23.6572 12.3035C23.7466 12.2302 23.8079 12.1282 23.8306 12.0148L25.6306 3.01479C25.6451 2.94222 25.6434 2.86733 25.6255 2.79552C25.6075 2.72372 25.5739 2.65679 25.5269 2.59956C25.48 2.54234 25.4209 2.49625 25.354 2.46462C25.2871 2.43299 25.214 2.41662 25.14 2.41667H5.75M9.75 21.75C9.75 22.3023 9.30228 22.75 8.75 22.75C8.19772 22.75 7.75 22.3023 7.75 21.75C7.75 21.1977 8.19772 20.75 8.75 20.75C9.30228 20.75 9.75 21.1977 9.75 21.75ZM23.75 21.75C23.75 22.3023 23.3023 22.75 22.75 22.75C22.1977 22.75 21.75 22.3023 21.75 21.75C21.75 21.1977 22.1977 20.75 22.75 20.75C23.3023 20.75 23.75 21.1977 23.75 21.75Z" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
