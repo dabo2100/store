@@ -1,9 +1,6 @@
 import Image from "../assets/92e8cbf43a7b882297a50eef7547660bf255be39.png";
 
-import ButtonsItemDetails from "./componentItemDerails/ButtonsItemDetails";
-import RelatedProduct from "./componentItemDerails/RelatedProduct";
-import FeaturesProductDetails from "./componentItemDerails/FeaturesProductDetails";
-const ItemDetails = () => {
+export default function ItemDetails() {
   return (
     <div className="w-full flex flex-col gap-10">
       <div className="grid grid-cols-1 lg:grid-cols-5 items-center gap-10 lg:gap-20 py-5 px-2">
@@ -25,13 +22,8 @@ const ItemDetails = () => {
             necessary information that a user might need to know about this
             particular item.
           </p>
-          <ButtonsItemDetails />
-          <FeaturesProductDetails />
         </div>
       </div>
-      <RelatedProduct />
     </div>
   );
 };
-
-export default ItemDetails;

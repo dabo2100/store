@@ -65,19 +65,6 @@ export default function HomePage() {
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  // Handle Prev/Next
-  const handlePrev = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
-  const handleNext = () => {
-    if (currentPage < Math.ceil(products.length / itemsPerPage)) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
   return (
     <div className="w-full flex flex-col md:flex-row py-5 gap-6">
       <div className="w-full md:w-[256px] h-fit md:h-full shrink-0">
@@ -108,38 +95,18 @@ export default function HomePage() {
 
         {/* Pagination Controls */}
         <div className="flex justify-center items-center gap-2 mt-8">
-          <button
-            onClick={handlePrev}
-            disabled={currentPage === 1}
-            className={`p-2 rounded-lg ${currentPage === 1 ? 'text-gray-300 cursor-not-allowed' : 'text-black hover:bg-gray-100'}`}
-          >
-            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 13L1 7L7 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-
           {Array.from({ length: Math.ceil(products.length / itemsPerPage) }).map((_, idx) => (
             <button
               key={idx + 1}
               onClick={() => paginate(idx + 1)}
               className={`w-8 h-8 rounded-lg text-sm font-medium transition-colors ${currentPage === idx + 1
-                  ? 'bg-black text-white'
-                  : 'bg-[#F5F5F5] text-[#989898] hover:bg-gray-200'
+                ? 'bg-black text-white'
+                : 'bg-[#F5F5F5] text-[#989898] hover:bg-gray-200'
                 }`}
             >
               {idx + 1}
             </button>
           ))}
-
-          <button
-            onClick={handleNext}
-            disabled={currentPage === Math.ceil(products.length / itemsPerPage)}
-            className={`p-2 rounded-lg ${currentPage === Math.ceil(products.length / itemsPerPage) ? 'text-gray-300 cursor-not-allowed' : 'text-black hover:bg-gray-100'}`}
-          >
-            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 13L7 7L1 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
         </div>
       </div>
     </div>

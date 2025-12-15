@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
+
 export default function CartItem() {
-    const [counter, setcounter] = useState(1)
+    const [counter, setcounter] = useState(1);
 
-    const increase = () => {
+    const increment = () => {
         setcounter(counter + 1)
-    }
+    };
 
-    const decrease = () => {
+    const decrement = () => {
         if (counter > 1) {
             setcounter(counter - 1)
-        }
-    }
+        };
+    };
 
     return (
         <div className="flex w-full gap-2 items-center">
@@ -29,16 +30,16 @@ export default function CartItem() {
                         <IoMdClose className="cursor-pointer" />
                     </div>
                     <div className="flex items-center rounded-md overflow-hidden">
-                        <button className="px-3 py-1 hover:bg-gray-100 cursor-pointer" onClick={decrease}>−</button>
+                        <button className="px-3 py-1 hover:bg-gray-100 cursor-pointer" onClick={decrement}>−</button>
 
                         <div className="px-4 select-none">{counter}</div>
 
-                        <button className="px-3 py-1 hover:bg-gray-100 cursor-pointer" onClick={increase}>+</button>
+                        <button className="px-3 py-1 hover:bg-gray-100 cursor-pointer" onClick={increment}>+</button>
                     </div>
 
                 </div>
 
             </div>
         </div>
-    )
-}
+    );
+};

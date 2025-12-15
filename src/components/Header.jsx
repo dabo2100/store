@@ -15,7 +15,7 @@ export default function Header() {
                 <path d="M64.7516 9.144C64.1276 8.928 63.5756 8.856 62.9276 8.856C62.4956 8.856 62.1356 8.88 61.7996 9.024V17.592H58.7036V6.816C59.6396 6.336 61.2476 6 62.8076 6C63.4796 6 64.6796 6.072 65.3996 6.336L64.7516 9.144Z" fill="black" />
             </svg>
 
-            {/* Search Bar - Hidden on small mobile, visible on desktop */}
+            {/* Search Bar */}
             <div className="hidden sm:flex items-center bg-[#F5F5F5] rounded-lg px-4 py-3 gap-2 w-full max-w-[372px]">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#989898" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -28,7 +28,7 @@ export default function Header() {
                 />
             </div>
 
-            {/* Navigation - Desktop */}
+            {/* Navigation*/}
             <nav className='hidden lg:flex items-center gap-[50px]'>
                 <NavLink to="/" className={({ isActive }) => isActive ? 'text-black font-medium' : 'text-[#989898] hover:text-black font-medium transition-colors'}>Home</NavLink>
                 <NavLink to="/about" className={({ isActive }) => isActive ? 'text-black font-medium' : 'text-[#989898] hover:text-black font-medium transition-colors'}>About</NavLink>
@@ -61,6 +61,7 @@ export default function Header() {
                     className='lg:hidden text-black z-50 cursor-pointer'
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
+                    {/* Mobile Menu Icon */}
                     {isMenuOpen ?
                         <svg width="22" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <path d="M6 18L18 6M6 6l12 12" />
@@ -91,6 +92,7 @@ export default function Header() {
                         />
                     </div>
 
+                    {/* Mobile Navigation */}
                     <nav className='flex flex-col gap-4'>
                         <NavLink to="/" className={({ isActive }) => isActive ? 'text-black font-medium' : 'text-[#989898] hover:text-black font-medium transition-colors'}>Home</NavLink>
                         <NavLink to="/about" className={({ isActive }) => isActive ? 'text-black font-medium' : 'text-[#989898] hover:text-black font-medium transition-colors'}>About</NavLink>
@@ -98,6 +100,7 @@ export default function Header() {
                         <NavLink to="/blog" className={({ isActive }) => isActive ? 'text-black font-medium' : 'text-[#989898] hover:text-black font-medium transition-colors'}>Blog</NavLink>
                     </nav>
 
+                    {/* Mobile Icons */}
                     <div className='flex sm:hidden items-center gap-6 pt-4 border-t border-gray-100'>
                         <button className='hover:opacity-75 transition-opacity'>
                             <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">

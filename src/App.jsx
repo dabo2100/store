@@ -7,7 +7,7 @@ import MainLayout from './MainLayout';
 
 export default function App() {
   return (
-    <div className="w-full h-dvh overflow-auto bg-white text-dark">
+    <div className="w-full h-dvh bg-white text-dark">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainLayout />}>
