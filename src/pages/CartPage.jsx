@@ -1,20 +1,19 @@
-import { useState } from "react";
 import CartItem from "../components/CartItem";
 
 
 export default function CartPage() {
 
-  return <div className="container flex w-[1440px] sm:h[1432px] lg:h-[736px] lg:px-[160px] lg:py-[40px] chau-font">
-    <div className="w-[1120px] lg:h-[656px] sm:h-[1432px] flex lg:flex-row sm:flex-col justify-center pt-3 gap-[48px]">
+  return <div className="container mx-auto flex flex-col items-center px-4 py-10 lg:py-[40px] chau-font">
+    <div className="w-full flex flex-col lg:flex-row justify-center gap-8 lg:gap-[48px]">
       <div className="w-full flex flex-col gap-[40px]">
-        <h1 className="font-chau font-normal text-[24px] leading-[24px] tracking-normal font-semibold">Shopping Cart</h1>
+        <h1 className="text-[24px] leading-[24px] tracking-normal font-semibold">Shopping Cart</h1>
         <div className="flex flex-col gap-[80px]">
           <CartItem />
           <CartItem />
           <CartItem />
         </div>
       </div>
-      <div className="w-full max-w-[536px] h-[656px] border border-[#EBEBEB] rounded-[10px] px-[64px] py-[56px] flex flex-col gap-[40px] bg-white">
+      <div className="w-full lg:max-w-[536px] h-fit border border-[#EBEBEB] rounded-[10px] px-6 py-8 lg:px-[64px] lg:py-[56px] flex flex-col gap-[40px] bg-white">
 
         <h2 className="text-[20px] font-semibold text-black">
           Order Summary
@@ -27,7 +26,7 @@ export default function CartPage() {
           <input
             type="text"
             placeholder="Code"
-            className="input input-bordered border-[#9F9F9F] w-[408px] h-[56px] bg-white text-[14px] text-black placeholder:text-[#9E9E9E]"
+            className="input input-bordered border-[#9F9F9F] w-full h-[56px] bg-white text-[14px] text-black placeholder:text-[#9E9E9E]"
           />
         </div>
 
@@ -40,7 +39,7 @@ export default function CartPage() {
             <input
               type="text"
               placeholder="Enter Card Number"
-              className="input input-bordered border-[#9F9F9F] w-[408px] h-[64px] w-full pr-[120px] text-[14px] bg-white text-black placeholder:text-[#9E9E9E]"
+              className="input input-bordered border-[#9F9F9F] w-full h-[64px] pr-[120px] text-[14px] bg-white text-black placeholder:text-[#9E9E9E]"
             />
 
             <button
@@ -74,7 +73,7 @@ export default function CartPage() {
             <span className="text-black font-semibold text-[18px]">$2426</span>
           </div>
         </div>
-        <button className="w-[408px] h-[56px] px-[56px] py-[16px] bg-black text-white rounded-lg text-base cursor-pointer">
+        <button className="w-full h-[56px] bg-black text-white rounded-lg text-base cursor-pointer hover:opacity-90 transition-opacity">
           Checkout
         </button>
 
