@@ -8,7 +8,7 @@ export default function Header() {
     return (
         <header className='w-full flex items-center justify-between py-6 md:px-0 container mx-auto relative'>
             {/* Logo */}
-            <svg width="66" height="23" viewBox="0 0 66 23" fill="" xmlns="http://www.w3.org/2000/svg">
+            <svg onClick={()=>{navigate("/")}} className='cursor-pointer' width="66" height="23" viewBox="0 0 66 23" fill="" xmlns="http://www.w3.org/2000/svg">
                 <path d="M14.1826 16.08C13.1266 17.352 8.016 17.5 6.096 17.5C2.304 17.5 0 15.052 0 11.5C0 7.972 2.328 5.524 6.096 5.524C7.92 5.524 13.1746 6.72 14.2306 7.992L8.832 9.484C8.064 8.644 7.224 8.308 6.096 8.308C4.488 8.308 3.096 9.604 3.096 11.5C3.096 13.564 4.392 14.716 6.096 14.716C7.104 14.716 8.256 14.332 8.88 13.54L14.1826 16.08Z" fill="black" />
                 <path d="M28.8035 6.312L21.8195 22.872H18.3875L20.6195 17.712L15.7955 6.312H19.2035L21.6035 12.408L22.2995 14.592L22.9715 12.408L25.3715 6.312H28.8035Z" fill="#989898" />
                 <path d="M36.6494 8.856C34.9214 8.856 33.6734 10.176 33.6734 11.976C33.6734 13.752 34.9214 15.072 36.6494 15.072C38.3294 15.072 39.4814 13.824 39.4814 11.976C39.4814 10.104 38.3294 8.856 36.6494 8.856ZM30.6734 17.592V0H33.7214V6.264L33.6734 7.08C34.1774 6.408 35.7134 6.024 36.7694 6.024C40.5374 6.024 42.6495 8.784 42.6495 11.976C42.6495 15.576 40.4894 17.904 36.7694 17.904C35.8574 17.904 34.3934 17.472 33.7934 16.752L33.8174 17.4V17.592H30.6734Z" fill="black" />
@@ -45,7 +45,7 @@ export default function Header() {
                             <path d="M5.75 0.75C2.989 0.75 0.75 2.966 0.75 5.7C0.75 7.907 1.625 13.145 10.238 18.44C10.3923 18.5339 10.5694 18.5835 10.75 18.5835C10.9306 18.5835 11.1077 18.5339 11.262 18.44C19.875 13.145 20.75 7.907 20.75 5.7C20.75 2.966 18.511 0.75 15.75 0.75C12.989 0.75 10.75 3.75 10.75 3.75C10.75 3.75 8.511 0.75 5.75 0.75Z" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </button>
-                    <button className='hover:opacity-75 transition-opacity cursor-pointer' onClick={()=>{navigate("/Cart")}}>
+                    <button className='hover:opacity-75 transition-opacity cursor-pointer' onClick={() => { navigate("/Cart") }}>
                         <svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.75 0.75H4.75L7.75 17.75H23.75M7.75 12.4167H23.34C23.4556 12.4167 23.5677 12.3767 23.6572 12.3035C23.7466 12.2302 23.8079 12.1282 23.8306 12.0148L25.6306 3.01479C25.6451 2.94222 25.6434 2.86733 25.6255 2.79552C25.6075 2.72372 25.5739 2.65679 25.5269 2.59956C25.48 2.54234 25.4209 2.49625 25.354 2.46462C25.2871 2.43299 25.214 2.41662 25.14 2.41667H5.75M9.75 21.75C9.75 22.3023 9.30228 22.75 8.75 22.75C8.19772 22.75 7.75 22.3023 7.75 21.75C7.75 21.1977 8.19772 20.75 8.75 20.75C9.30228 20.75 9.75 21.1977 9.75 21.75ZM23.75 21.75C23.75 22.3023 23.3023 22.75 22.75 22.75C22.1977 22.75 21.75 22.3023 21.75 21.75C21.75 21.1977 22.1977 20.75 22.75 20.75C23.3023 20.75 23.75 21.1977 23.75 21.75Z" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
@@ -95,10 +95,15 @@ export default function Header() {
 
                     {/* Mobile Navigation */}
                     <nav className='flex flex-col gap-4'>
-                        <NavLink to="/" className={({ isActive }) => isActive ? 'text-black font-medium' : 'text-[#989898] hover:text-black font-medium transition-colors'}>Home</NavLink>
-                        <NavLink to="/about" className={({ isActive }) => isActive ? 'text-black font-medium' : 'text-[#989898] hover:text-black font-medium transition-colors'}>About</NavLink>
-                        <NavLink to="/contact" className={({ isActive }) => isActive ? 'text-black font-medium' : 'text-[#989898] hover:text-black font-medium transition-colors'}>Contact Us</NavLink>
-                        <NavLink to="/blog" className={({ isActive }) => isActive ? 'text-black font-medium' : 'text-[#989898] hover:text-black font-medium transition-colors'}>Blog</NavLink>
+                        <NavLink onClick={()=>{setIsMenuOpen(false)}} to="/" className={({ isActive }) => isActive ? 'text-black font-medium w-fit' : 'text-[#989898] hover:text-black font-medium transition-colors w-fit'}>Home</NavLink>
+                        <NavLink onClick={()=>{setIsMenuOpen(false)}} to="/about" className={({ isActive }) => isActive ? 'text-black font-medium w-fit' : 'text-[#989898] hover:text-black font-medium transition-colors w-fit'}>About</NavLink>
+                        <NavLink onClick={()=>{setIsMenuOpen(false)}} to="/contact" className={({ isActive }) => isActive ? 'text-black font-medium w-fit' : 'text-[#989898] hover:text-black font-medium transition-colors w-fit'}>Contact Us</NavLink>
+                        <NavLink onClick={()=>{setIsMenuOpen(false)}} to="/blog" className={({ isActive }) => isActive ? 'text-black font-medium w-fit' : 'text-[#989898] hover:text-black font-medium transition-colors w-fit'}>Blog</NavLink>
+                        <NavLink onClick={()=>{setIsMenuOpen(false)}} to="/cart" className='hover:opacity-75 transition-opacity cursor-pointer w-fit'>
+                            <svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.75 0.75H4.75L7.75 17.75H23.75M7.75 12.4167H23.34C23.4556 12.4167 23.5677 12.3767 23.6572 12.3035C23.7466 12.2302 23.8079 12.1282 23.8306 12.0148L25.6306 3.01479C25.6451 2.94222 25.6434 2.86733 25.6255 2.79552C25.6075 2.72372 25.5739 2.65679 25.5269 2.59956C25.48 2.54234 25.4209 2.49625 25.354 2.46462C25.2871 2.43299 25.214 2.41662 25.14 2.41667H5.75M9.75 21.75C9.75 22.3023 9.30228 22.75 8.75 22.75C8.19772 22.75 7.75 22.3023 7.75 21.75C7.75 21.1977 8.19772 20.75 8.75 20.75C9.30228 20.75 9.75 21.1977 9.75 21.75ZM23.75 21.75C23.75 22.3023 23.3023 22.75 22.75 22.75C22.1977 22.75 21.75 22.3023 21.75 21.75C21.75 21.1977 22.1977 20.75 22.75 20.75C23.3023 20.75 23.75 21.1977 23.75 21.75Z" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </NavLink>
                     </nav>
 
                     {/* Mobile Icons */}
