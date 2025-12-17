@@ -6,7 +6,7 @@ export default function Header() {
     const navigate = useNavigate()
 
     return (
-        <header className='w-full flex items-center justify-between py-6 md:px-0 container mx-auto'>
+        <header className='w-full flex items-center justify-between py-6 md:px-0 container mx-auto relative'>
             {/* Logo */}
             <svg width="66" height="23" viewBox="0 0 66 23" fill="" xmlns="http://www.w3.org/2000/svg">
                 <path d="M14.1826 16.08C13.1266 17.352 8.016 17.5 6.096 17.5C2.304 17.5 0 15.052 0 11.5C0 7.972 2.328 5.524 6.096 5.524C7.92 5.524 13.1746 6.72 14.2306 7.992L8.832 9.484C8.064 8.644 7.224 8.308 6.096 8.308C4.488 8.308 3.096 9.604 3.096 11.5C3.096 13.564 4.392 14.716 6.096 14.716C7.104 14.716 8.256 14.332 8.88 13.54L14.1826 16.08Z" fill="black" />
@@ -64,7 +64,7 @@ export default function Header() {
                 >
                     {/* Mobile Menu Icon */}
                     {isMenuOpen ?
-                        <svg width="22" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <path d="M6 18L18 6M6 6l12 12" />
                         </svg>
                         :
