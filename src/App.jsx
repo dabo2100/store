@@ -4,10 +4,12 @@ import ProductDetails from './pages/ProductDetails';
 import CartPage from './pages/CartPage';
 import Page404 from './pages/Page404';
 import MainLayout from './MainLayout';
+import { Toaster } from 'react-hot-toast';
 
 export default function App() {
   return (
     <div className="w-full h-dvh bg-white text-dark">
+      <Toaster position="top-center" reverseOrder={false} />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainLayout />}>
