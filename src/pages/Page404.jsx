@@ -11,7 +11,7 @@ export default function Page404() {
         <p className="text-xl text-red-600 font-semibold">Please check the URL and try again.</p>
         <button
           onClick={() => navigate('/')}
-          className="px-8 py-3 bg-black text-white rounded-lg hover:opacity-80 transition-opacity"
+          className="px-8 py-3 bg-black text-white rounded-lg hover:opacity-80 transition-opacity cursor-pointer"
         >
           Go to Home
         </button>

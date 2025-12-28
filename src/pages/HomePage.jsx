@@ -99,7 +99,7 @@ export default function HomePage() {
             <button
               key={idx + 1}
               onClick={() => paginate(idx + 1)}
-              className={`w-8 h-8 rounded-lg text-sm font-medium transition-colors ${currentPage === idx + 1
+              className={`cursor-pointer w-8 h-8 rounded-lg text-sm font-medium transition-colors ${currentPage === idx + 1
                 ? 'bg-black text-white'
                 : 'bg-[#F5F5F5] text-[#989898] hover:bg-gray-200'
                 }`}
