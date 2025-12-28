@@ -5,6 +5,8 @@ import CartPage from './pages/CartPage';
 import Page404 from './pages/Page404';
 import MainLayout from './MainLayout';
 import { Toaster } from 'react-hot-toast';
+import Loginpage from './pages/loginpage';
+import Register from './pages/Register';
 
 export default function App() {
   return (
@@ -17,7 +19,8 @@ export default function App() {
             <Route path="/products/:id" element={<ProductDetails />} />
             <Route path="/cart" element={<CartPage />} />
           </Route>
-
+          <Route path="/login" element={<Loginpage />} />
+          <Route path="/register" element={<Register />} />
           <Route path="*" element={<Page404 />} />
         </Routes>
       </BrowserRouter>

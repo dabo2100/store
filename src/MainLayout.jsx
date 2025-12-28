@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { useEffect } from 'react';
@@ -11,6 +11,12 @@ export default function MainLayout() {
   //   console.log('Cart Changed');
   //   calcTotal();
   // }, [items]);
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    let token = sessionStorage.getItem("token") || localStorage.getItem("token")
+    !token && navigate("/login")
+  }, [])
 
   return (
     <div className="flex flex-col items-center bg-white">

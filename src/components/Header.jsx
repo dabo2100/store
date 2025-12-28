@@ -7,6 +7,12 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
+  const logout = () => {
+        sessionStorage.removeItem("token")
+        localStorage.removeItem("token")
+        navigate("/login")
+    }
+
   return (
     <header className="w-full flex items-center justify-between py-6 md:px-0 container mx-auto relative">
       {/* Logo */}
@@ -62,7 +68,7 @@ export default function Header() {
             </svg>
           </button>
           <button
-            className="hover:opacity-75 transition-opacity cursor-pointer"
+            className="hover:opacity-75 transition-opacity cursor-pointer relative"
             onClick={() => {
               navigate('/Cart');
             }}
@@ -70,14 +76,29 @@ export default function Header() {
             <svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0.75 0.75H4.75L7.75 17.75H23.75M7.75 12.4167H23.34C23.4556 12.4167 23.5677 12.3767 23.6572 12.3035C23.7466 12.2302 23.8079 12.1282 23.8306 12.0148L25.6306 3.01479C25.6451 2.94222 25.6434 2.86733 25.6255 2.79552C25.6075 2.72372 25.5739 2.65679 25.5269 2.59956C25.48 2.54234 25.4209 2.49625 25.354 2.46462C25.2871 2.43299 25.214 2.41662 25.14 2.41667H5.75M9.75 21.75C9.75 22.3023 9.30228 22.75 8.75 22.75C8.19772 22.75 7.75 22.3023 7.75 21.75C7.75 21.1977 8.19772 20.75 8.75 20.75C9.30228 20.75 9.75 21.1977 9.75 21.75ZM23.75 21.75C23.75 22.3023 23.3023 22.75 22.75 22.75C22.1977 22.75 21.75 22.3023 21.75 21.75C21.75 21.1977 22.1977 20.75 22.75 20.75C23.3023 20.75 23.75 21.1977 23.75 21.75Z" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            {items.length != 0 && <span>{items.length}</span>}
+            {items.length != 0 && <span className='absolute top-[17px] right-[5px] text-yellow-400 font-bold text-xl'>{items.length}</span>}
           </button>
           <button className="hover:opacity-75 transition-opacity cursor-pointer">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M24 27V24.3333C24 22.9188 23.5224 21.5623 22.6722 20.5621C21.8221 19.5619 20.669 19 19.4667 19H11.5333C10.331 19 9.17795 19.5619 8.32778 20.5621C7.47762 21.5623 7 22.9188 7 24.3333V27M21 9.5C21 11.9853 18.9853 14 16.5 14C14.0147 14 12 11.9853 12 9.5C12 7.01472 14.0147 5 16.5 5C18.9853 5 21 7.01472 21 9.5Z" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
+            <button onClick={logout} className='absolute right-[-9px] bottom-[10px] sm:right-[46px] md:right-[54px] lg:right-[-9px] hover:opacity-75 transition-opacity cursor-pointer'>Logout</button>
         </div>
+
+        {/* Cart in Mobile View */}
+        <button
+          onClick={() => {
+            navigate('/Cart')
+          }}
+          to="/cart"
+          className="hover:opacity-75 transition-opacity cursor-pointer relative sm:hidden"
+        >
+          <svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.75 0.75H4.75L7.75 17.75H23.75M7.75 12.4167H23.34C23.4556 12.4167 23.5677 12.3767 23.6572 12.3035C23.7466 12.2302 23.8079 12.1282 23.8306 12.0148L25.6306 3.01479C25.6451 2.94222 25.6434 2.86733 25.6255 2.79552C25.6075 2.72372 25.5739 2.65679 25.5269 2.59956C25.48 2.54234 25.4209 2.49625 25.354 2.46462C25.2871 2.43299 25.214 2.41662 25.14 2.41667H5.75M9.75 21.75C9.75 22.3023 9.30228 22.75 8.75 22.75C8.19772 22.75 7.75 22.3023 7.75 21.75C7.75 21.1977 8.19772 20.75 8.75 20.75C9.30228 20.75 9.75 21.1977 9.75 21.75ZM23.75 21.75C23.75 22.3023 23.3023 22.75 22.75 22.75C22.1977 22.75 21.75 22.3023 21.75 21.75C21.75 21.1977 22.1977 20.75 22.75 20.75C23.3023 20.75 23.75 21.1977 23.75 21.75Z" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          {items.length != 0 && <span className='absolute top-[17px] right-[5px] text-yellow-400 font-bold text-xl'>{items.length}</span>}
+        </button>
 
         {/* Mobile Menu Button */}
         <button className="lg:hidden text-black z-50 cursor-pointer" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -155,22 +176,12 @@ export default function Header() {
                 <path d="M22.6667 6.66666C20.6667 6.66666 18.8 7.6 17.6 9.06666C16.9333 9.86666 15.0667 9.86666 14.4 9.06666C13.2 7.6 11.3333 6.66666 9.33333 6.66666C5.86667 6.66666 3.06667 9.46666 3.06667 12.9333C3.06667 19.8667 16 26.6667 16 26.6667C16 26.6667 28.9333 19.8667 28.9333 12.9333C28.9333 9.46666 26.1333 6.66666 22.6667 6.66666Z" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
-            <NavLink
-              onClick={() => {
-                setIsMenuOpen(false);
-              }}
-              to="/cart"
-              className="hover:opacity-75 transition-opacity cursor-pointer"
-            >
-              <svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0.75 0.75H4.75L7.75 17.75H23.75M7.75 12.4167H23.34C23.4556 12.4167 23.5677 12.3767 23.6572 12.3035C23.7466 12.2302 23.8079 12.1282 23.8306 12.0148L25.6306 3.01479C25.6451 2.94222 25.6434 2.86733 25.6255 2.79552C25.6075 2.72372 25.5739 2.65679 25.5269 2.59956C25.48 2.54234 25.4209 2.49625 25.354 2.46462C25.2871 2.43299 25.214 2.41662 25.14 2.41667H5.75M9.75 21.75C9.75 22.3023 9.30228 22.75 8.75 22.75C8.19772 22.75 7.75 22.3023 7.75 21.75C7.75 21.1977 8.19772 20.75 8.75 20.75C9.30228 20.75 9.75 21.1977 9.75 21.75ZM23.75 21.75C23.75 22.3023 23.3023 22.75 22.75 22.75C22.1977 22.75 21.75 22.3023 21.75 21.75C21.75 21.1977 22.1977 20.75 22.75 20.75C23.3023 20.75 23.75 21.1977 23.75 21.75Z" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </NavLink>
             <button className="hover:opacity-75 transition-opacity cursor-pointer">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M24 27V24.3333C24 22.9188 23.5224 21.5623 22.6722 20.5621C21.8221 19.5619 20.669 19 19.4667 19H11.5333C10.331 19 9.17795 19.5619 8.32778 20.5621C7.47762 21.5623 7 22.9188 7 24.3333V27M21 9.5C21 11.9853 18.9853 14 16.5 14C14.0147 14 12 11.9853 12 9.5C12 7.01472 14.0147 5 16.5 5C18.9853 5 21 7.01472 21 9.5Z" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
+              <button onClick={logout} className="hover:opacity-75 transition-opacity cursor-pointer">Logout</button>
           </div>
         </div>
       )}
