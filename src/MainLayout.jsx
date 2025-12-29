@@ -16,7 +16,7 @@ export default function MainLayout() {
   useEffect(() => {
     let token = sessionStorage.getItem("token") || localStorage.getItem("token")
     !token && navigate("/login")
-  }, [navigate])
+  }, [])
 
   return (
     <div className="flex flex-col items-center bg-white">
